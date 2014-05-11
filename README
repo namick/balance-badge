@@ -1,0 +1,14 @@
+SYNOPSIS
+
+http://balance-badge.herokuapp.com/address/13gyziA1CWPX6jUXQWzitbr7AHJ2LVmpKq.png
+
+This URL fetches the ballance of that bitcoin address and returns a dynamically created image with the balance overlayed across the image.
+
+
+SETUP
+
+$ brew install imagemagick ghostscript
+$ bundle install
+$ rackup &
+$ curl http://localhost:9292/address/13gyziA1CWPX6jUXQWzitbr7AHJ2LVmpKq.png
+
