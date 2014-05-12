@@ -27,7 +27,7 @@ end
 def gen_badge(balance)
   badge = Magick::ImageList.new("badge.png")
   text = Magick::Draw.new
-  text.annotate(badge, 0, 0, 0, 80, "#{balance} BTC") do
+  text.annotate(badge, 0, 0, 0, 0, "#{balance} BTC") do
       self.gravity = Magick::CenterGravity
       self.pointsize = 50
       self.stroke = 'transparent'
