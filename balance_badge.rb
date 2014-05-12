@@ -33,7 +33,7 @@ def gen_badge(balance)
       self.pointsize = 50
       self.stroke = 'transparent'
       self.fill = '#fff'
-      self.font_weight = Magick::'100'
+      self.font_weight = '100'
   end
   badge.format = 'png'
   badge.to_blob {self.quality = 80}
