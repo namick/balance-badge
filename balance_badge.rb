@@ -25,14 +25,15 @@ def get_balance(addr_hash)
 end
 
 def gen_badge(balance)
-  badge = Magick::ImageList.new("wayne.png")
+  badge = Magick::ImageList.new("badge.png")
   text = Magick::Draw.new
   text.annotate(badge, 0, 0, 0, 80, "#{balance} BTC") do
-      self.gravity = Magick::SouthGravity
+      self.font_family = 'Helvetica'
+      self.gravity = Magick::CenterGravity
       self.pointsize = 50
       self.stroke = 'transparent'
       self.fill = '#fff'
-      self.font_weight = Magick::BoldWeight
+      self.font_weight = '100'
   end
   badge.format = 'png'
   badge.to_blob {self.quality = 80}
