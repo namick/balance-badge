@@ -38,7 +38,7 @@ def gen_badge(balance)
   badge.to_blob {self.quality = 80}
 end
 
-get '/address/:addr_hash' do
+get '/bitcoin/balance/:addr_hash' do
   content_type 'image/png'
   status(200)
   addr_hash = params['addr_hash']
