@@ -18,7 +18,7 @@ def get_balance(addr_hash)
   return 0 if (Integer(resp.code) / 100) != 2
   begin
     json = JSON.parse(resp.body)
-    return Integer(json["balance"]) / BTC
+    return Integer(json["balance"]) / Float(BTC)
   rescue
     return 0
   end
