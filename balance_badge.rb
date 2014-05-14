@@ -19,7 +19,7 @@ def get_balance(addr_hash)
   return 0 if (Integer(resp.code) / 100) != 2
   begin
     json = JSON.parse(resp.body)
-    return Integer(json["balance"]) / Float(BTC).round(2)
+    return Integer(json["balance"]) / Float(BTC)
   rescue
     return 0
   end
@@ -28,7 +28,7 @@ end
 def gen_badge(balance)
   badge = Magick::ImageList.new("badge-v2-400.png")
   text = Magick::Draw.new
-  text.annotate(badge, 0, 0, 0, 60, "#{balance}") do
+  text.annotate(badge, 0, 0, 0, 60, "#{balance}.round(2)") do
       self.font_family = 'Helvetica'
       self.gravity = Magick::NorthGravity
       self.pointsize = 70
