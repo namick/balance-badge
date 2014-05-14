@@ -28,7 +28,7 @@ end
 def gen_badge(balance)
   badge = Magick::ImageList.new("badge-v2-400.png")
   text = Magick::Draw.new
-  text.annotate(badge, 0, 0, 0, 60, "#{balance}.round(2)") do
+  text.annotate(badge, 0, 0, 0, 60, "#{balance.round(2)}") do
       self.font_family = 'Helvetica'
       self.gravity = Magick::NorthGravity
       self.pointsize = 70
