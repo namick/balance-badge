@@ -30,7 +30,7 @@ def gen_badge(balance)
   text = Magick::Draw.new
   text.annotate(badge, 0, 0, 0, 20, "#{balance} BTC") do
       self.font_family = 'Helvetica'
-      self.gravity = Magick::TopGravity
+      self.gravity = Magick::NorthGravity
       self.pointsize = 50
       self.stroke = 'transparent'
       self.fill = '#fff'
