@@ -31,7 +31,7 @@ def gen_badge(balance)
   text.annotate(badge, 0, 0, 0, 60, "#{balance.round(2)}") do
       self.font_family = 'Helvetica'
       self.gravity = Magick::NorthGravity
-      self.pointsize = 70
+      self.pointsize = 80
       self.stroke = 'transparent'
       self.fill = '#00a4c8'
       self.font_weight = Magick::LighterWeight
