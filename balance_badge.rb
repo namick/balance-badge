@@ -12,6 +12,7 @@ def get_balance(addr_hash)
   puts addr_hash
   path = "/bitcoin/addresses/#{addr_hash}"
   con = Net::HTTP.new(CHAIN_URL.host, CHAIN_URL.port)
+  con.use_ssl = true
   req = Net::HTTP::Get.new(CHAIN_URL.request_uri + path)
   req.basic_auth(CHAIN_URL.user, '')
   resp = con.request(req)
