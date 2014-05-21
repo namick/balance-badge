@@ -10,7 +10,7 @@ CHAIN_URL = URI.parse(ENV['CHAIN_URL'])
 
 def get_balance(addr_hash)
   puts addr_hash
-  path = "/bitcoin/addresses/#{addr_hash}"
+  path = "/v1/bitcoin/addresses/#{addr_hash}"
   con = Net::HTTP.new(CHAIN_URL.host, CHAIN_URL.port)
   con.use_ssl = true
   req = Net::HTTP::Get.new(CHAIN_URL.request_uri + path)
