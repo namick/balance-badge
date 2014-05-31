@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'RMagick'
 require 'sinatra'
-require 'chain-ruby'
+require 'chain'
 
 SATOSHI = 1
 BTC = SATOSHI * 100_000_000
