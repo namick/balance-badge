@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    chain-ruby (0.0.2)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -15,5 +16,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chain-ruby (= 0.0.2)
   rmagick
   sinatra

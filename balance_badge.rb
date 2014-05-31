@@ -2,27 +2,14 @@ require 'net/http'
 require 'json'
 require 'RMagick'
 require 'sinatra'
+require 'chain-ruby'
 
 SATOSHI = 1
 BTC = SATOSHI * 100_000_000
 
-CHAIN_URL = URI.parse(ENV['CHAIN_URL'])
-
 def get_balance(addr_hash)
-  puts addr_hash
-  path = "/v1/bitcoin/addresses/#{addr_hash}"
-  con = Net::HTTP.new(CHAIN_URL.host, CHAIN_URL.port)
-  con.use_ssl = true
-  req = Net::HTTP::Get.new(CHAIN_URL.request_uri + path)
-  req.basic_auth(CHAIN_URL.user, '')
-  resp = con.request(req)
-  return 0 if (Integer(resp.code) / 100) != 2
-  begin
-    json = JSON.parse(resp.body)
-    return Integer(json["balance"]) / Float(BTC)
-  rescue
-    return 0
-  end
+  a = Chain.get_address(addr_hash)
+  a.nil? ? 0 : Integer(a["balance"]) / Float(BTC)
 end
 
 def gen_badge(balance)
